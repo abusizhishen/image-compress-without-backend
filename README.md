@@ -2,7 +2,6 @@
 
 ![demo image](demo.pc.png)
 
-访问地址：[https://works.yangerxiao.com/icfe/](https://works.yangerxiao.com/icfe/)
 
 注：该工具不仅会压缩大小，还会自动压缩尺寸（宽高超过 750px 会被压缩）。另，目前该产品还处于试验阶段，请根据压缩后的具体效果酌情使用。
 

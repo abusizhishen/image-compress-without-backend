@@ -10,7 +10,7 @@ export default function DownloadAll({ disabled = false, images = [] }) {
     });
     zip.generateAsync({ type: 'blob' }).then(function(content) {
       // see FileSaver.js
-      saveAs(content, `icfe-${new Date().getTime()}.zip`);
+      saveAs(content, `${new Date().getTime()}.zip`);
     });
   };
   return (

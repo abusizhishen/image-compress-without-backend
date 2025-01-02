@@ -114,7 +114,7 @@ export default function Output({ images }) {
                   ? URL.createObjectURL(reduceSize == 0 ? img : compressed)
                   : '#'
               }
-              download={`icfe-${name}`}
+              download={`${name}`}
               className="download"
             >
               <img onClick={handleDownloadClick} src={ImageDownload} alt="download" />
