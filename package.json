@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tar -zcvf dist.tar.gz dist",
     "serve": "vite preview",
     "prepare": "husky install"
   },
@@ -28,22 +28,22 @@
   },
   "homepage": "https://works.yangerxiao.com/",
   "dependencies": {
+    "antd": "^5.22.4",
     "b64-to-blob": "^1.2.19",
     "browser-image-compression": "^2.0.2",
+    "eslint": "^9.16.0",
     "file-saver": "^2.0.5",
-    "i18next": "^24.0.5",
-    "i18next-browser-languagedetector": "^8.0.2",
-    "i18next-http-backend": "^3.0.1",
     "jszip": "^3.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-github-btn": "^1.2.1",
-    "react-i18next": "^15.1.4",
+    "react-i18next": "^15.4.1",
     "react-icons": "^4.3.1",
     "react-refresh": "^0.11.0",
     "react-share": "^4.4.0",
     "styled-components": "^5.3.3",
-    "styled-reset": "^4.3.4"
+    "styled-reset": "^4.3.4",
+    "vite-plugin-compression": "^0.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.2",

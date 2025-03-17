@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import imageCompression from 'browser-image-compression';
-import LeaveConfirm from './components/LeaveConfirm';
-import InfoModal from './components/InfoModal';
+// import LeaveConfirm from './components/LeaveConfirm';
+// import InfoModal from './components/InfoModal';
 import Summary from './components/Summary';
 import Reset from './components/Reset';
 import DownloadAll from './components/DownloadAll';
 import Input from './components/Input';
 import Output from './components/Output';
-import {useTranslation} from 'react-i18next';
-
+// import {useTranslation} from 'react-i18next';
+import Description from './components/Description'
 import styled from 'styled-components';
 
 const StyledBody = styled.section`
@@ -16,7 +16,8 @@ const StyledBody = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  max-width: 42rem;
 
   .opts {
     width: 15rem;
@@ -26,8 +27,11 @@ const StyledBody = styled.section`
   }
 
   .hidden {
-    visibility: hidden;
+    //visibility: hidden;
+    display: none;
   }
+
+
 `;
 const options = {
     maxSizeMB: 1,
@@ -35,11 +39,11 @@ const options = {
     useWebWorker: true,
 };
 const App = () => {
-    const {t, i18n} = useTranslation();
-
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language); // 切换语言
-    };
+    // const {t, i18n} = useTranslation();
+    //
+    // const changeLanguage = (language) => {
+    //     i18n.changeLanguage(language); // 切换语言
+    // };
 
     const [compressing, setCompressing] = useState(false);
     const [originSize, setOriginSize] = useState(0);
@@ -94,20 +98,37 @@ const App = () => {
     return (
         <StyledBody>
             {/*<LeaveConfirm trigger={images.length > 0} />*/}
-            <button onClick={() => changeLanguage('en')}>English</button>
-            <button onClick={() => changeLanguage('zh')}>中文</button>
+            {/*<button onClick={() => changeLanguage('en')}>English</button>*/}
+            {/*<button onClick={() => changeLanguage('zh')}>中文</button>*/}
 
             <Input compressImages={handleCompress}/>
-            <Output images={images}/>
-            <div className={`opts ${images.length === 0 ? 'hidden' : ''}`}>
-                <Reset disabled={compressing} resetAll={resetAll}/>{' '}
-                <DownloadAll disabled={compressing} images={images}/>
+            <div className={`${images.length === 0 ? 'hidden' : ''}`}>
+                <Output images={images}/>
+                <div className={`opts ${images.length === 0 ? 'hidden' : ''}`}>
+                    <Reset disabled={compressing} resetAll={resetAll}/>{' '}
+                    <DownloadAll disabled={compressing} images={images}/>
+                </div>
+                <Summary
+                    visible={images.length > 0}
+                    totalSize={originSize}
+                    totalCompressedSize={compressSize}
+                />
             </div>
-            <Summary
-                visible={images.length > 0}
-                totalSize={originSize}
-                totalCompressedSize={compressSize}
-            />
+
+            <Description/>
+
+            {/*<h2>Frequently Asked Questions</h2>*/}
+            {/*<div className="faq">*/}
+            {/*    <h3>How can I reduce the MB size of a photo?</h3>*/}
+            {/*    <p>Our free <strong>photo compressor</strong> allows you to <strong>reduce the MB size of*/}
+            {/*        photos</strong> directly*/}
+            {/*        in your browser. Simply upload your image and let our tool handle the rest.</p>*/}
+
+            {/*    <h3>Can I compress images without losing quality?</h3>*/}
+            {/*    <p>Yes, with our <strong>image compressor</strong>, you can <strong>compress images without losing*/}
+            {/*        quality</strong>.*/}
+            {/*        This ensures your photos remain sharp and clear.</p>*/}
+            {/*</div>*/}
 
             {/*<InfoModal />*/}
         </StyledBody>

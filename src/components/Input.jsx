@@ -5,7 +5,8 @@ import {useTranslation} from 'react-i18next';
 
 const StyledWrapper = styled.section`
   position: relative;
-  width: 22rem;
+  width: 100%;
+  height: 12rem;
   background-color: #d0d4d3;
   box-shadow: 0 0 6px 0px #d0d4ee;
   border: 2px dashed #555;
@@ -15,6 +16,7 @@ const StyledWrapper = styled.section`
   justify-content: center;
   align-items: center;
   padding: 0.8rem 1rem;
+  margin-top: 1rem;
 
   &:hover {
     opacity: 0.6;
@@ -63,11 +65,12 @@ export default function Input({compressImages}) {
                 type="file"
                 name="images"
                 id="images"
-                title="请上传图片，可多选"
+                title="Please upload images, multiple selection supported."
             />
             <img className="img" src={ImageUpload} alt="upload image"/>
-            <h2 className="title">{t('title')}</h2>
-            <h3 className="desc">{t('description')}</h3>
+            <h2 className="title">Upload Images (Multiple Selection Supported)</h2>
+            <h3 className="desc">All operations are performed within the browser, ensuring your privacy and security.
+                Only PNG and JPG (JPEG) formats are supported.</h3>
         </StyledWrapper>
     );
 }
